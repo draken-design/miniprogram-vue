@@ -35,6 +35,12 @@
       "style": {
         "navigationBarTitleText": "视图"
       }
+    },
+    {
+      "path": "pages/popup/index"
+    },
+    {
+      "path": "pages/loading/index"
     }
   ],
   "globalStyle": {

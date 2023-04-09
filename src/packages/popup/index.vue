@@ -10,19 +10,7 @@
     <view class="dr_content_height" :style="contentStyle">
       <view v-if="props.title" class="dr_popup_title" :style="props.titleStyle">
         {{ props.title }}
-        <svg
-          class="dr_popup_img"
-          width="15"
-          height="14"
-          viewBox="0 0 15 14"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M7.45219 5.73217L13.0501 0.134246C13.2128 -0.0284726 13.4767 -0.0284726 13.6394 0.134246L14.2286 0.723502C14.3913 0.88622 14.3913 1.15004 14.2286 1.31276L8.6307 6.91069L14.2286 12.5086C14.3913 12.6713 14.3913 12.9352 14.2286 13.0979L13.6394 13.6871C13.4767 13.8498 13.2128 13.8498 13.0501 13.6871L7.45219 8.0892L1.85426 13.6871C1.69154 13.8498 1.42772 13.8498 1.26501 13.6871L0.67575 13.0979C0.513031 12.9352 0.513031 12.6713 0.67575 12.5086L6.27368 6.91069L0.67575 1.31276C0.513031 1.15004 0.513031 0.88622 0.67575 0.723502L1.26501 0.134246C1.42772 -0.0284726 1.69154 -0.0284726 1.85426 0.134246L7.45219 5.73217Z"
-            fill="#646A73"
-          />
-        </svg>
+        <dr-icons name="clear"></dr-icons>
       </view>
       <view v-else-if="slots.header" class="dr_content_header">
         <slot name="header"></slot>
@@ -70,6 +58,7 @@ import {
   CSSProperties,
   useSlots,
 } from "vue";
+import { DrIcons } from "..";
 import { useZIndex } from "../../hooks/use-z-index";
 export interface FooterOptions {
   /**

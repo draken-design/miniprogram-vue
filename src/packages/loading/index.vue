@@ -1,10 +1,23 @@
 <template>
-  <view :class="['dr_loading', { dr_loading_full: full }]">
+  <view
+    :class="['dr_loading', { dr_loading_full: full }]"
+    :style="{
+      zIndex: props.loading ? nextZIndex : -10000,
+    }"
+  >
     <view class="dr_loading_content">
-      <view v-if="!full" :style="{ opacity: loading ? props.opacity : 1 }"
-        ><slot
-      /></view>
-      <view v-else-if="tips" class="loading_tips">{{ tips }}</view>
+      <view
+        v-if="!full"
+        :style="{ opacity: props.loading ? props.opacity : 1 }"
+      >
+        <slot></slot>
+      </view>
+      <view
+        v-else-if="props.tips"
+        class="loading_tips"
+        :style="{ opacity: props.loading ? 1 : 0 }"
+        >{{ props.tips }}</view
+      >
       <view
         v-if="props.loading"
         class="loading"
@@ -19,6 +32,7 @@
 </template>
 <script setup lang="ts" name="dr-loading">
 import { computed, withDefaults } from "vue";
+import { useZIndex } from "../../hooks/use-z-index";
 export interface LoadingProps {
   loading?: boolean;
   full?: boolean;
@@ -26,6 +40,7 @@ export interface LoadingProps {
   size?: number;
   opacity?: number;
 }
+const nextZIndex = useZIndex()();
 const props = withDefaults(defineProps<LoadingProps>(), {
   tips: "",
   full: false,
@@ -48,3 +63,4 @@ const position = computed(() => {
   };
 });
 </script>
+<style></style>

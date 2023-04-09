@@ -35,6 +35,16 @@ const data: Item[] = [
     tips: "",
     url: "../tag/index",
   },
+  {
+    name: "popup蒙层",
+    tips: "",
+    url: "../popup/index",
+  },
+  {
+    name: "加载",
+    tips: "",
+    url: "../loading/index",
+  },
 ];
 </script>
 
