@@ -3,7 +3,10 @@
     :class="['dr_popup', visible ? 'dr_popup_show' : 'dr_popup_hide']"
     :style="{ zIndex: nextZIndex }"
   >
-    <view class="dr_popup_top" @tap="props.maskCancel && emits('onCancel')"></view>
+    <view
+      class="dr_popup_top"
+      @tap="props.maskCancel && emits('onCancel')"
+    ></view>
     <view class="dr_content_height" :style="contentStyle">
       <view v-if="props.title" class="dr_popup_title" :style="props.titleStyle">
         {{ props.title }}
@@ -24,20 +27,31 @@
       <view v-else-if="slots.header" class="dr_content_header">
         <slot name="header"></slot>
       </view>
-      <view class="dr_content_scorll" :style="{ height: computedContentHeight }">
+      <view
+        class="dr_content_scorll"
+        :style="{ height: computedContentHeight }"
+      >
         <slot></slot>
       </view>
       <view v-if="props.footerOptions" class="dr_popup_footer">
         <button
           v-if="props.footerOptions.okText"
-          :class="['dr_popup_button', 'dr_popup_ok', props.footerOptions.okClass]"
+          :class="[
+            'dr_popup_button',
+            'dr_popup_ok',
+            props.footerOptions.okClass,
+          ]"
           @tap="emits('onConfirm')"
         >
           {{ props.footerOptions.okText }}
         </button>
         <button
           v-if="props.footerOptions.cancelText"
-          :class="['dr_popup_button', 'dr_popup_cancel', props.footerOptions.cancelClass]"
+          :class="[
+            'dr_popup_button',
+            'dr_popup_cancel',
+            props.footerOptions.cancelClass,
+          ]"
           @tap="emits('onCancel')"
         >
           {{ props.footerOptions.cancelText }}
@@ -48,8 +62,15 @@
 </template>
 
 <script setup lang="ts" name="dr-popup">
-import { withDefaults, computed, watch, ref, CSSProperties, useSlots } from 'vue';
-import { useZIndex } from '../../hooks/use-z-index';
+import {
+  withDefaults,
+  computed,
+  watch,
+  ref,
+  CSSProperties,
+  useSlots,
+} from "vue";
+import { useZIndex } from "../../hooks/use-z-index";
 export interface FooterOptions {
   /**
    * @description 底部取消文字
@@ -91,22 +112,22 @@ export interface popupProps {
 const nextZIndex = useZIndex()();
 const props = withDefaults(defineProps<popupProps>(), {
   visible: true,
-  title: '',
+  title: "",
   maskCancel: true,
   contentStyle() {
     return {
-      height: '70vh',
+      height: "70vh",
     };
   },
 });
-const emits = defineEmits(['onCancel', 'onConfirm']);
+const emits = defineEmits(["onCancel", "onConfirm"]);
 const visible = ref<boolean>(props.visible);
 watch(
   () => props.visible,
   (val) => {
     if (val) visible.value = true;
     else visible.value = false;
-  },
+  }
 );
 const slots = useSlots();
 const computedContentHeight = computed(() => {

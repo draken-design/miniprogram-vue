@@ -16,7 +16,7 @@
     "dev:mp-baidu": "uni -p mp-baidu",
     "dev:mp-jd": "uni -p mp-jd",
     "dev:mp-kuaishou": "uni -p mp-kuaishou",
-    "dev:mp-lark": "../node_modules/.bin/uni -p mp-lark",
+    "dev:mp-lark": "uni -p mp-lark",
     "dev:mp-qq": "uni -p mp-qq",
     "dev:mp-toutiao": "uni -p mp-toutiao",
     "dev:mp-weixin": "uni -p mp-weixin",

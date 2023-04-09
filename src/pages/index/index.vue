@@ -41,6 +41,7 @@
       cancelText: '取消',
     }"
   >
+    <template #header>asdad</template>
     <view style="height: 700px; background-color: antiquewhite"></view>
   </dr-popup>
   <dr-media-preview
@@ -70,12 +71,6 @@ import {
   DrPopup,
   DrTag,
 } from "../../packages";
-import "@draken-design/mini-common/less/dr-tag.less";
-import "@draken-design/mini-common/less/dr-loading.less";
-import "@draken-design/mini-common/less/dr-cell.less";
-import "@draken-design/mini-common/less/dr-popup.less";
-import "@draken-design/mini-common/less/dr-media-preview.less";
-import "@draken-design/mini-common/less/common/dr-icon.less";
 
 const params = reactive({
   popupVis: false,
