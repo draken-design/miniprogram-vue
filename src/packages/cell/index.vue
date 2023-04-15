@@ -33,7 +33,8 @@
   </view>
 </template>
 <script setup lang="ts" name="dr-cell">
-import { DrTag, DrIcons } from "../";
+import DrTag from "../tag/index.vue";
+import DrIcons from "../icons/index.vue";
 import { CSSProperties, withDefaults, useSlots } from "vue";
 export interface CellProps {
   /**
@@ -69,6 +70,7 @@ export interface CellProps {
    */
   asterisk?: boolean;
 }
+
 const props = withDefaults(defineProps<CellProps>(), {
   title: "",
   openArrow: true,

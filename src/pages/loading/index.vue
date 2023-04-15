@@ -1,6 +1,6 @@
 <template>
-  <dr-tag :plain="false" size="large" @click="a">点击全屏loading</dr-tag>
-  <dr-tag :plain="false" size="large" @click="params.loading = true"
+  <dr-tag :plain="false" size="large" @tap="a">点击全屏loading</dr-tag>
+  <dr-tag :plain="false" size="large" @tap="params.loading = true"
     >点击局部loading</dr-tag
   >
   <dr-loading :loading="params.fullLoading" :full="true" tips="3秒后自动关闭" />
@@ -10,7 +10,8 @@
 </template>
 
 <script setup lang="ts">
-import { DrLoading, DrTag } from "../../packages";
+import DrLoading from "../../packages/loading/index.vue";
+import DrTag from "../../packages/tag/index.vue";
 import { reactive } from "vue";
 const params = reactive({
   fullLoading: false,

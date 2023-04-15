@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { DrCell } from "../../packages";
+import DrCell from "../../packages/cell/index.vue";
 interface Item {
   name: string;
   tips: string;
@@ -21,9 +21,6 @@ interface Item {
 const click = (item: Item) => {
   uni.navigateTo({
     url: item.url,
-    success: (res) => {
-      console.log(res);
-    },
     fail: (err) => {
       console.log(err);
     },

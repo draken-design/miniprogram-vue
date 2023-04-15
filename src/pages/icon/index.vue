@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { DrIcons } from "../../packages";
+import DrIcons from "../../packages/icons/index.vue";
 const data = [
   {
     icon_id: "88049",

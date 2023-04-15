@@ -9,7 +9,7 @@
       :title="item.name"
       :open-arrow="true"
       :key="item.name"
-      @click="a(item)"
+      @tap="a(item)"
     >
       <view>{{ item.tips }}</view>
     </dr-cell>
@@ -17,17 +17,16 @@
 </template>
 
 <script setup lang="ts">
-import { DrCell } from "../../packages";
+import DrCell from "../../packages/cell/index.vue";
 interface Item {
   name: string;
   tips: string;
   url: string;
 }
 const a = (item: Item) => {
-  console.log(item);
   uni.navigateTo({
     url: item.url,
-    success: (res) => {
+    fail: (res) => {
       console.log(res);
     },
   });

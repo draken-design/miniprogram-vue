@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { DrCell } from "../../packages";
+import DrCell from "../../packages/cell/index.vue";
 interface Item {
   name: string;
   tips: string;
@@ -21,9 +21,6 @@ interface Item {
 const click = (item: Item) => {
   uni.navigateTo({
     url: item.url,
-    success: (res) => {
-      console.log(res);
-    },
     fail: (err) => {
       console.log(err);
     },
@@ -44,6 +41,26 @@ const data: Item[] = [
     name: "加载",
     tips: "",
     url: "../loading/index",
+  },
+  {
+    name: "下拉菜单drop-down",
+    tips: "",
+    url: "../drop-down/index",
+  },
+  {
+    name: "图片预览-img-picker",
+    tips: "",
+    url: "../img-picker/index",
+  },
+  {
+    name: "步骤条-steps",
+    tips: "",
+    url: "../steps/index",
+  },
+  {
+    name: "步骤条-手风琴",
+    tips: "",
+    url: "../accordion/index",
   },
 ];
 </script>

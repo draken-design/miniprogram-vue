@@ -13,24 +13,10 @@
       >
     </view>
   </view>
-  <!-- <dr-tag>primary</dr-tag>
-  <dr-tag :plain="false">primary</dr-tag>
-  <dr-tag type="success">success</dr-tag>
-  <dr-tag type="success" :plain="false">success</dr-tag>
-  <dr-tag type="info">info</dr-tag>
-  <dr-tag type="info" :plain="false">info</dr-tag>
-  <dr-tag type="error">error</dr-tag>
-  <dr-tag type="error" :plain="false">error</dr-tag>
-  <dr-tag type="warning">warning</dr-tag>
-  <dr-tag type="warning" :plain="false">warning</dr-tag>
-  <dr-tag size="large">large</dr-tag>
-  <dr-tag size="medium">medium</dr-tag>
-  <dr-tag round>primary</dr-tag>
-  <dr-tag size="small">small</dr-tag> -->
 </template>
 
 <script setup lang="ts">
-import { DrTag } from "../../packages";
+import DrTag from "../../packages/tag/index.vue";
 const data: any[] = [
   {
     name: "空心标签",

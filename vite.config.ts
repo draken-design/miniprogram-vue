@@ -1,28 +1,26 @@
 import { defineConfig, Plugin } from "vite";
 import uni from "@dcloudio/vite-plugin-uni";
-function transformVBind(): Plugin {
-  const a = new RegExp("/tag/index.vue");
-  const c = new RegExp("/tag/");
-  const b = new RegExp("&name=tag&lang.ts");
+function rollupVueName(): Plugin {
+  const Reg = /(&name=)(\S{1,})&/;
+  const replaceReg = /__name:(\s)?('|")index('|"),/;
   return {
-    name: "transform-v-binds",
-    enforce: "pre",
-    config(config, env) {
-      console.log(config.plugins ? config.plugins[1] : 0);
+    name: "rollup-vue-name",
+    load(id, options) {
+      console.log(id);
     },
-
-    transform(code, id) {
-      if (c.test(id)) {
-        let str = code;
-        // while (/v\-bind=("|')([\s\S]+)("|')/g.test(str)) {
-        //   const match = code.match(/v\-bind=("|')([\s\S]+)("|')/)
-        //   match?.index
-        //   str = match? match[2] || ''
-        // }
-        // if (code.match(/v\-bind=("|')([\s\S]+)("|')/)) console.log('id', id)
-        // console.log('code', code)
-      }
-    },
+    // transform: (code, id) => {
+    //   const regArr = id.match(Reg);
+    //   if (id.includes("/packages/accordion/index.vue")) {
+    //     console.log(id);
+    //     console.log(code);
+    //   }
+    //   if (regArr && regArr[2]) {
+    //     return {
+    //       code: code.replace(replaceReg, `__name: '${regArr[2]}',`),
+    //       map: { mappings: "" },
+    //     };
+    //   }
+    // },
   };
 }
 // https://vitejs.dev/config/

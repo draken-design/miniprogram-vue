@@ -58,7 +58,7 @@ import {
   CSSProperties,
   useSlots,
 } from "vue";
-import { DrIcons } from "..";
+import DrIcons from "../icons/index.vue";
 import { useZIndex } from "../../hooks/use-z-index";
 export interface FooterOptions {
   /**

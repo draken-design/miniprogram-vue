@@ -1,5 +1,5 @@
 <template>
-  <dr-tag :plain="false" size="large" @click="params.popupVis = true"
+  <dr-tag :plain="false" size="large" @tap="params.popupVis = true"
     >点击弹出</dr-tag
   >
   <dr-popup
@@ -17,7 +17,8 @@
 </template>
 
 <script setup lang="ts">
-import { DrPopup, DrTag } from "../../packages";
+import DrPopup from "../../packages/popup/index.vue";
+import DrTag from "../../packages/tag/index.vue";
 import { reactive } from "vue";
 const params = reactive({
   popupVis: false,
