@@ -58,9 +58,29 @@ const data: Item[] = [
     url: "../steps/index",
   },
   {
-    name: "步骤条-手风琴",
+    name: "手风琴-accordion",
     tips: "",
     url: "../accordion/index",
+  },
+  {
+    name: "通知栏-noticebar",
+    tips: "",
+    url: "../noticebar/index",
+  },
+  {
+    name: "进度条",
+    tips: "",
+    url: "../progress/index",
+  },
+  {
+    name: "标签页",
+    tips: "",
+    url: "../tabs/index",
+  },
+  {
+    name: "标签筛选器-tag-filter",
+    tips: "",
+    url: "../tag-filter/index",
   },
 ];
 </script>

@@ -45,6 +45,18 @@
     },
     {
       "path": "pages/accordion/index"
+    },
+    {
+      "path": "pages/noticebar/index"
+    },
+    {
+      "path": "pages/progress/index"
+    },
+    {
+      "path": "pages/tabs/index"
+    },
+    {
+      "path": "pages/tag-filter/index"
     }
   ],
   "globalStyle": {

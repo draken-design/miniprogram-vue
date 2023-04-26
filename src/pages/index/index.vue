@@ -25,7 +25,7 @@
     :asterisk="true"
     titleTag="titleTag"
     rightTag="rightTag"
-    @click="cellClick"
+    @tap="cellClick"
   >
     <template v-slot:titleIcon><dr-loading /></template>
     <template v-slot:leftIcon><dr-loading /></template>
