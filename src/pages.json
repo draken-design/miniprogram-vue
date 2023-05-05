@@ -57,6 +57,24 @@
     },
     {
       "path": "pages/tag-filter/index"
+    },
+    {
+      "path": "pages/toast/index"
+    },
+    {
+      "path": "pages/radio/index"
+    },
+    {
+      "path": "pages/time-line/index"
+    },
+    {
+      "path": "pages/date-picker/index"
+    },
+    {
+      "path": "pages/switch/index"
+    },
+    {
+      "path": "pages/check-box/index"
     }
   ],
   "globalStyle": {

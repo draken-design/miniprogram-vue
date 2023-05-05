@@ -1,6 +1,6 @@
 <template>
-  <scroll-view :scroll-x="true">
-    <view :class="props.column ? 'dr_tag_filter_column' : 'dr_tag_filter'">
+  <scroll-view :scroll-x="true" class="dr_tag_filter_scroll">
+    <view :class="['dr_tag_filter', { dr_tag_filter_column: props.column }]">
       <view
         v-for="(item, index) in renderList"
         :class="[
@@ -8,7 +8,9 @@
           itemClass,
           { dr_tag_filter_item_active: item.isSelect },
           item.isSelect && props.itemActiveClass,
+          'dr_tag_filter_item_column-' + props.column,
         ]"
+        :style="computedStyle"
         @tap="() => itemClick(index)"
       >
         {{ item.text }}
@@ -17,8 +19,7 @@
   </scroll-view>
 </template>
 <script setup lang="ts" name="dr-tag-filter">
-import { ref } from "vue";
-import { withDefaults } from "vue";
+import { withDefaults, ref, computed, CSSProperties } from "vue";
 export interface TagList {
   key: string;
   text: string;
@@ -56,10 +57,21 @@ const props = withDefaults(defineProps<TagFilterProps>(), {
   selectNumber: 1,
   itemClass: "",
 });
-console.log(props);
 const emits = defineEmits(["onChange"]);
 const renderList = ref<renderList[]>(JSON.parse(JSON.stringify(props.tagList)));
 let selectList: TagList[] = [];
+const computedStyle = computed<CSSProperties>(() => {
+  if (props.column) {
+    return {
+      width: `calc(${100 / props.column}% - ${
+        ((props.column - 1) * 16) / props.column
+      }px)`,
+    };
+  }
+  return {
+    flex: "0 0 auto",
+  };
+});
 const itemClick = (index: number) => {
   if (renderList.value[index].isSelect) {
     renderList.value[index].isSelect = false;

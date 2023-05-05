@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2px 5px;
+    padding: 3px 0;
     box-sizing: border-box;
     color: #de8c17;
     background: #fcf6ed;
@@ -15,14 +15,15 @@
     }
   }
   .dr_noticebar_roll {
+    position: absolute;
     white-space: nowrap;
+    z-index: 0;
     padding-left: 100%;
-    animation: marquee 50s linear infinite both;
+    animation: marquee 20s linear infinite both;
   }
   .dr_noticebar_icon {
-    position: absolute;
+    z-index: 1;
     background: #fcf6ed;
-    left: 0;
   }
 }
 @keyframes marquee {

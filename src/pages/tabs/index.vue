@@ -1,5 +1,5 @@
 <template>
-  <view class="page">
+  <view class="padding">
     <view style="margin: 10px 0">普通</view>
     <dr-tabs :tab-list="tabList"></dr-tabs>
     <view style="margin: 10px 0">滚动</view>

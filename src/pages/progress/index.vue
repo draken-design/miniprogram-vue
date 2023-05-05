@@ -1,5 +1,5 @@
 <template>
-  <view style="padding: 20px">
+  <view class="padding">
     <view style="margin: 10px 0">更改尺寸</view>
     <dr-progress :percentage="30" :stroke-size="10" />
     <view style="margin: 10px 0">更改背景颜色</view>

@@ -10,6 +10,7 @@
       okText: '确定',
       cancelText: '取消',
     }"
+    title="asdas"
   >
     <template #header>asdad</template>
     <view style="height: 700px; background-color: antiquewhite" />

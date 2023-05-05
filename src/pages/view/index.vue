@@ -68,12 +68,12 @@ const data: Item[] = [
     url: "../noticebar/index",
   },
   {
-    name: "进度条",
+    name: "进度条-progress",
     tips: "",
     url: "../progress/index",
   },
   {
-    name: "标签页",
+    name: "标签页-tabs",
     tips: "",
     url: "../tabs/index",
   },
@@ -81,6 +81,36 @@ const data: Item[] = [
     name: "标签筛选器-tag-filter",
     tips: "",
     url: "../tag-filter/index",
+  },
+  {
+    name: "弹窗-toast",
+    tips: "",
+    url: "../toast/index",
+  },
+  {
+    name: "单选-radio",
+    tips: "",
+    url: "../radio/index",
+  },
+  {
+    name: "时间轴-time-line",
+    tips: "",
+    url: "../time-line/index",
+  },
+  {
+    name: "选择时间日期-date-picker",
+    tips: "",
+    url: "../date-picker/index",
+  },
+  {
+    name: "开关-switch",
+    tips: "",
+    url: "../switch/index",
+  },
+  {
+    name: "复选框-check-box",
+    tips: "",
+    url: "../check-box/index",
   },
 ];
 </script>

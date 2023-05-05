@@ -40,7 +40,7 @@ export interface LoadingProps {
   size?: number;
   opacity?: number;
 }
-const nextZIndex = useZIndex()();
+const nextZIndex = useZIndex();
 const props = withDefaults(defineProps<LoadingProps>(), {
   tips: "",
   full: false,

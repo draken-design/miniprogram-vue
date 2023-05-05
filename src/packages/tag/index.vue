@@ -16,39 +16,38 @@
   </view>
 </template>
 <script setup lang="ts" name="dr-tag">
-import { withDefaults } from 'vue'
-export interface TagProps {
+export interface DrTagProps {
   /**
    * @description 类型
    */
-  type?: 'primary' | 'success' | 'error' | 'warning' | 'info'
+  type?: "primary" | "success" | "error" | "warning" | "info";
   /**
    * @description 圆角标签
    */
-  round?: boolean
+  round?: boolean;
   /**
    * @description 标签大小
    */
-  size?: 'medium' | 'large' | 'small' | 'default'
+  size?: "medium" | "large" | "small" | "default";
   /**
    * @description 文字颜色
    */
-  color?: string
+  color?: string;
   /**
    * @description 背景颜色
    */
-  bgColor?: string
+  bgColor?: string;
   /**
    * @description 朴素标签
    */
-  plain?: boolean
+  plain?: boolean;
 }
-const props = withDefaults(defineProps<TagProps>(), {
-  color: '',
-  type: 'primary',
-  bgColor: '',
+const props = withDefaults(defineProps<DrTagProps>(), {
+  color: "",
+  type: "primary",
+  bgColor: "",
   round: true,
-  size: 'default',
+  size: "default",
   plain: true,
-})
+});
 </script>

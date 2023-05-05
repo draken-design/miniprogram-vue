@@ -1,52 +1,59 @@
 <template>
-  <view
-    :class="['dr_popup', visible ? 'dr_popup_show' : 'dr_popup_hide']"
-    :style="{ zIndex: nextZIndex }"
-  >
-    <view
-      class="dr_popup_top"
-      @tap="props.maskCancel && emits('onCancel')"
-    ></view>
-    <view class="dr_content_height" :style="contentStyle">
-      <view v-if="props.title" class="dr_popup_title" :style="props.titleStyle">
-        {{ props.title }}
-        <dr-icons name="clear"></dr-icons>
-      </view>
-      <view v-else-if="slots.header" class="dr_content_header">
-        <slot name="header"></slot>
-      </view>
+  <dr-basic-mask :visible="props.visible">
+    <view class="dr_popup">
       <view
-        class="dr_content_scorll"
-        :style="{ height: computedContentHeight }"
-      >
-        <slot></slot>
-      </view>
-      <view v-if="props.footerOptions" class="dr_popup_footer">
-        <button
-          v-if="props.footerOptions.okText"
-          :class="[
-            'dr_popup_button',
-            'dr_popup_ok',
-            props.footerOptions.okClass,
-          ]"
-          @tap="emits('onConfirm')"
+        class="dr_popup_top"
+        @tap="() => props.maskCancel && emits('onCancel')"
+      />
+      <view class="dr_content_height" :style="contentStyle">
+        <view
+          v-if="props.title"
+          class="dr_popup_title"
+          :style="props.titleStyle"
         >
-          {{ props.footerOptions.okText }}
-        </button>
-        <button
-          v-if="props.footerOptions.cancelText"
-          :class="[
-            'dr_popup_button',
-            'dr_popup_cancel',
-            props.footerOptions.cancelClass,
-          ]"
-          @tap="emits('onCancel')"
+          {{ props.title }}
+          <dr-icons
+            name="clear"
+            class="dr_popup_icon"
+            @tap="() => emits('onCancel')"
+          />
+        </view>
+        <view v-else-if="slots.header" class="dr_content_header">
+          <slot name="header" />
+        </view>
+        <view
+          class="dr_content_scorll"
+          :style="{ height: computedContentHeight }"
         >
-          {{ props.footerOptions.cancelText }}
-        </button>
+          <slot />
+        </view>
+        <view v-if="props.footerOptions" class="dr_popup_footer">
+          <button
+            v-if="props.footerOptions.okText"
+            :class="[
+              'dr_popup_button',
+              'dr_popup_ok',
+              props.footerOptions.okClass,
+            ]"
+            @tap="emits('onConfirm')"
+          >
+            {{ props.footerOptions.okText }}
+          </button>
+          <button
+            v-if="props.footerOptions.cancelText"
+            :class="[
+              'dr_popup_button',
+              'dr_popup_cancel',
+              props.footerOptions.cancelClass,
+            ]"
+            @tap="emits('onCancel')"
+          >
+            {{ props.footerOptions.cancelText }}
+          </button>
+        </view>
       </view>
     </view>
-  </view>
+  </dr-basic-mask>
 </template>
 
 <script setup lang="ts" name="dr-popup">
@@ -59,6 +66,7 @@ import {
   useSlots,
 } from "vue";
 import DrIcons from "../icons/index.vue";
+import DrBasicMask from "../basic-mask/index.vue";
 import { useZIndex } from "../../hooks/use-z-index";
 export interface FooterOptions {
   /**
@@ -72,7 +80,7 @@ export interface FooterOptions {
   okText: string;
   okClass?: string;
 }
-export interface popupProps {
+export interface DrPopupProps {
   /**
    * @description 控制显示隐藏
    */
@@ -98,8 +106,8 @@ export interface popupProps {
    */
   footerOptions?: FooterOptions;
 }
-const nextZIndex = useZIndex()();
-const props = withDefaults(defineProps<popupProps>(), {
+const nextZIndex = useZIndex();
+const props = withDefaults(defineProps<DrPopupProps>(), {
   visible: true,
   title: "",
   maskCancel: true,

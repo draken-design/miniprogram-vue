@@ -1,6 +1,9 @@
 <template>
   <view class="dr_noticebar">
     <view class="dr_noticebar_content">
+      <view class="dr_noticebar_icon">
+        <slot name="noticeIcon" />
+      </view>
       <view
         :class="[
           'dr_noticebar_content_text',
@@ -11,9 +14,6 @@
         ]"
       >
         <slot />
-      </view>
-      <view class="dr_noticebar_icon">
-        <slot name="noticeIcon" />
       </view>
       <view v-if="props.showMore && !props.isRoll" class="dr_noticebar_more"
         >查看</view
